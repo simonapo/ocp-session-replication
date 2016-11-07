@@ -1,0 +1,18 @@
+#!groovy
+
+node {
+   stage 'Build war file'
+
+   // Set the environment for the Maven Build
+   env.JAVA_HOME = tool 'JDK8'
+   def mvnHome = tool 'Maven3'
+
+   checkout scm
+
+   // Now invoke the Maven Build
+   sh "${mvnHome}/bin/mvn clean package -DskipTests"
+
+   stage 'Archive war'
+   archive 'target/*.war'
+}
+
