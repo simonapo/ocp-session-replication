@@ -4,8 +4,8 @@ node {
     stage 'Build'
         //build 'session-replication'
 
-    openshiftBuild apiURL: '', authToken: '', bldCfg: 'webapp-qa', checkForTriggeredDeployments: 'false', namespace: OCP_PROJECT, verbose: 'false'
-    openshiftVerifyBuild apiURL: '', authToken: '', bldCfg: 'webapp-qa', checkForTriggeredDeployments: 'false', namespace: OCP_PROJECT, verbose: 'false'
+    openshiftBuild apiURL: '', authToken: '', bldCfg: 'webapp-dev', checkForTriggeredDeployments: 'false', namespace: OCP_PROJECT, verbose: 'false'
+    openshiftVerifyBuild apiURL: '', authToken: '', bldCfg: 'webapp-dev', checkForTriggeredDeployments: 'false', namespace: OCP_PROJECT, verbose: 'false'
 
     openshiftTag alias: 'false', apiURL: '', authToken: '', destStream: 'webapp', destTag: 'qa', destinationAuthToken: '', destinationNamespace: OCP_PROJECT, namespace: OCP_PROJECT, srcStream: 'webapp', srcTag: 'latest', verbose: 'false'
 
