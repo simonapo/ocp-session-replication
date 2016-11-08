@@ -58,17 +58,13 @@ node {
 }
 
 
-def checkPort(server, port) {
-    sh "checkPort.sh ${server} ${port}"
-}
-
 def prepareBuild(version, branch) {
     sh "git checkout -b ${branch}"
-    sh "mvn -f pom.xml versions:set -DgenerateBackupPoms=false -DnewVersion=${version} -DOSE_NEXUS_HOST=nexus.ml.opentlc.com"
+    sh "mvn -f pom.xml versions:set -DgenerateBackupPoms=false -DnewVersion=${version}"
 }
 
 def build() {
-    sh "mvn clean package -DskipTests -s maven/nexus-hardcoded-settings.xml"
+    sh "mvn clean package -DskipTests"
 }
 
 def integrationTests() {
@@ -82,10 +78,10 @@ def publishToNexusAndCommitBranch(version, branch) {
 }
 
 def deployToJBossEAP(buildConfig) {
-    echo "OPENSHIFT_API_URL = $OPENSHIFT_API_URL"
     echo "PROJECT = $PROJECT"
     echo "BUILD_CONFIG = ${buildConfig}"
-    sh "oc_build_deploy.sh ${OPENSHIFT_API_URL} ${PROJECT} ${buildConfig}"
+    openshiftBuild apiURL: '', authToken: '', bldCfg: buildConfig, checkForTriggeredDeployments: 'false', namespace: PROJECT, verbose: 'false'
+    openshiftVerifyBuild apiURL: '', authToken: '', bldCfg: buildConfig, checkForTriggeredDeployments: 'false', namespace: PROJECT, verbose: 'false'
 }
 
 def getVersionFromPom(pom) {
