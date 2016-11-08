@@ -13,6 +13,7 @@ node {
 
     openshiftTag alias: 'false', apiURL: '', authToken: '', destStream: 'webapp', destTag: 'qa', destinationAuthToken: '', destinationNamespace: OCP_PROJECT, namespace: OCP_PROJECT, srcStream: 'webapp', srcTag: 'latest', verbose: 'false'
 
+    stage 'Approve QA Deployment'
     timeout(time: 2, unit: 'DAYS') {
         input message: 'Do you want to deploy into Q&A?'
     }
@@ -25,7 +26,7 @@ node {
     openshiftTag alias: 'false', apiURL: '', authToken: '', destStream: 'webapp', destTag: 'prod', destinationAuthToken: '', destinationNamespace: OCP_PROJECT, namespace: OCP_PROJECT, srcStream: 'webapp', srcTag: 'qa', verbose: 'false'
 
     // Wait until authorization to push to production
-    stage 'Approve'
+    stage 'Approve Production Deployment'
     timeout(time: 2, unit: 'DAYS') {
         input message: 'Do you want to deploy into production?'
     }
