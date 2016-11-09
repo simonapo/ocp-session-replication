@@ -32,7 +32,6 @@ node {
     }
 
     // Push to production
-    // Uses `oc` utility of OSE to trigger S2I BuildConfig object in prod environment
     stage 'Deploy to Production'
     openshiftDeploy apiURL: '', authToken: '', depCfg: 'webapp-prod', namespace: OCP_PROJECT, verbose: 'false', waitTime: ''
     openshiftVerifyDeployment apiURL: '', authToken: '', depCfg: 'webapp-prod', namespace: OCP_PROJECT, replicaCount: '1', verbose: 'false', verifyReplicaCount: 'false', waitTime: ''
