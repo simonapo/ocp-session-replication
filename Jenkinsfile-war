@@ -1,6 +1,6 @@
 #!groovy
 
-node {
+node("maven") {
    stage 'Build war file'
 
    // Set the environment for the Maven Build
