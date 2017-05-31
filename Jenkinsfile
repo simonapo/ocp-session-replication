@@ -8,7 +8,6 @@ node {
         openshiftVerifyBuild apiURL: '', authToken: '', bldCfg: 'webapp-dev', checkForTriggeredDeployments: 'false', namespace: OCP_PROJECT, verbose: 'false'
     }
     stage('Deploy to Dev') {
-        openshiftTag alias: 'false', apiURL: '', authToken: '', destStream: 'webapp', destTag: 'dev', destinationAuthToken: '', destinationNamespace: OCP_PROJECT, namespace: OCP_PROJECT, srcStream: 'webapp', srcTag: 'latest', verbose: 'false'
         openshiftDeploy apiURL: '', authToken: '', depCfg: 'webapp-dev', namespace: OCP_PROJECT, verbose: 'false', waitTime: ''
         openshiftVerifyDeployment apiURL: '', authToken: '', depCfg: 'webapp-dev', namespace: OCP_PROJECT, replicaCount: '1', verbose: 'false', verifyReplicaCount: 'false', waitTime: ''
 

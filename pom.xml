@@ -14,6 +14,7 @@
   <build>
     <finalName>session-replication</finalName>
   </build>
+
   <dependencies>
     <!--
         As updates are released for EAP the version of the provided jboss-javaee-6.0
@@ -36,95 +37,14 @@
       <groupId>org.jboss.spec</groupId>
       <artifactId>jboss-javaee-6.0</artifactId>
       <version>3.0.2.Final-redhat-15</version>
-      <!-- http://maven.repository.redhat.com/techpreview/all/org/jboss/spec/jboss-javaee-6.0/3.0.2.Final-redhat-4/jboss-javaee-6.0-3.0.2.Final-redhat-4.pom -->
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <id>redhat-ga-repository</id>
-      <name>Red Hat GA repository</name>
-      <url>http://maven.repository.redhat.com/ga/</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-        <updatePolicy>daily</updatePolicy>
-      </snapshots>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>redhat-ga-repository</id>
-      <name>Red Hat GA repository</name>
-      <url>http://maven.repository.redhat.com/ga/</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-        <updatePolicy>daily</updatePolicy>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
+
   <profiles>
     <profile>
       <id>openshift</id>
-      <!--
-        Setting of OSE_NEXUS_HOST system property does not work with Maven v3.0.5 ....
-        which is version of Maven found in stock RHEL-server 7 based yum repositories
-        Subsequently, setting of OSE_NEXUS_HOST (similar to the jenkins profile) does not work
-        in OSEv3 S2I (which leverages maven from base RHEL7 OS.
-        Unfortunately, will need to hard-code URL of NEXUS_HOST
-      -->
-      <repositories>
-        <repository>
-          <id>Nexus Repository</id>
-          <url>http://nexus-opentlc-shared.apps.na1.openshift.opentlc.com/content/groups/public/</url>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>Nexus Repository</id>
-          <url>http://nexus-opentlc-shared.apps.na1.openshift.opentlc.com/content/groups/public/</url>
-        </pluginRepository>
-      </pluginRepositories>
-<!--
-      <repositories>
-        <repository>
-          <id>redhat-ga-repository</id>
-          <name>Red Hat GA repository</name>
-          <url>http://maven.repository.redhat.com/ga/</url>
-          <releases>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-            <updatePolicy>daily</updatePolicy>
-          </snapshots>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>redhat-ga-repository</id>
-          <name>Red Hat GA repository</name>
-          <url>http://maven.repository.redhat.com/ga/</url>
-          <releases>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-            <updatePolicy>daily</updatePolicy>
-          </snapshots>
-        </pluginRepository>
-      </pluginRepositories>
-    -->
       <build>
         <finalName>session-replication</finalName>
         <plugins>
