@@ -93,7 +93,7 @@
           <url>http://nexus-opentlc-shared.apps.na1.openshift.opentlc.com/content/groups/public/</url>
         </pluginRepository>
       </pluginRepositories>
-
+<!--
       <repositories>
         <repository>
           <id>redhat-ga-repository</id>
@@ -124,6 +124,7 @@
           </snapshots>
         </pluginRepository>
       </pluginRepositories>
+    -->
       <build>
         <finalName>session-replication</finalName>
         <plugins>
