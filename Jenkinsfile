@@ -6,6 +6,7 @@ node {
 
         openshiftBuild apiURL: '', authToken: '', bldCfg: 'webapp-dev', checkForTriggeredDeployments: 'false', namespace: OCP_PROJECT, verbose: 'false'
         openshiftVerifyBuild apiURL: '', authToken: '', bldCfg: 'webapp-dev', checkForTriggeredDeployments: 'false', namespace: OCP_PROJECT, verbose: 'false'
+        openshiftTag alias: 'false', apiURL: '', authToken: '', destStream: 'webapp', destTag: 'dev', destinationAuthToken: '', destinationNamespace: OCP_PROJECT, namespace: OCP_PROJECT, srcStream: 'webapp', srcTag: 'latest', verbose: 'false'
     }
     stage('Deploy to Dev') {
         openshiftDeploy apiURL: '', authToken: '', depCfg: 'webapp-dev', namespace: OCP_PROJECT, verbose: 'false', waitTime: ''
