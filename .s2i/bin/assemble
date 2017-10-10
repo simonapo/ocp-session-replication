@@ -22,6 +22,7 @@ echo APPLICATION_ARTIFACT_URL  = $APPLICATION_ARTIFACT_URL
 
 # . $(dirname $0)/common.sh
 . /usr/local/s2i/common.sh
+. /opt/rh/rh-maven33/enable
 
 # WK: END CHANGES
 
