@@ -17,10 +17,11 @@
 # JA Bride:  now also copying any files that might exist in this JEE project's bin directory to $JBOSS_HOME/bin
 echo DISABLE_ASSET_COMPILATION = $DISABLE_ASSET_COMPILATION
 echo APPLICATION_ARTIFACT_URL  = $APPLICATION_ARTIFACT_URL
+
+. /usr/local/s2i/common.sh
+# . $(dirname $0)/common.sh
 # WK: END CHANGES
 
-
-. $(dirname $0)/common.sh
 . /opt/rh/rh-maven33/enable
 
 LOCAL_SOURCE_DIR=/tmp/src
