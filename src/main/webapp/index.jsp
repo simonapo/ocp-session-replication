@@ -58,7 +58,7 @@
         </tr>
 
         <tr>
-            <td>Session counter</td>
+            <td>Session Counter</td>
             <td>demo.counter</td>
             <td><%= session.getAttribute("demo.counter") %></td>
         </tr>
