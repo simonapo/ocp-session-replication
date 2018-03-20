@@ -64,7 +64,7 @@
         </tr>
 
         <tr>
-            <td>Timestamp of last increment</td>
+            <td>Timestamp of Last increment</td>
             <td>demo.timestamp</td>
             <td><%= session.getAttribute("demo.timestamp") %></td>
         </tr>
